@@ -170,6 +170,8 @@ class ReplayPluginTest extends TestCase
         $this->item->expects($this->once())->method('isHit')->willReturn(false);
         $this->item->expects($this->once())->method('set')->willReturnCallback(function ($value) use ($body) {
             $this->assertSame(['response' => $this->response, 'body' => $body], $value);
+
+            return $this->item;
         });
         $this->item->expects($this->never())->method('get');
 
@@ -213,6 +215,8 @@ class ReplayPluginTest extends TestCase
         $this->item->expects($this->once())->method('isHit')->willReturn(false);
         $this->item->expects($this->once())->method('set')->willReturnCallback(function ($value) use ($body) {
             $this->assertSame(['response' => $this->response, 'body' => $body], $value);
+
+            return $this->item;
         });
         $this->item->expects($this->never())->method('get');
 
